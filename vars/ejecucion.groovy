@@ -8,6 +8,7 @@ def pipelineType = verifyBranchName();
 
     stages{
            
+           println "pipelineType  + ${pipelineType}"
             if (pipelineType == 'CI'){
                 figlet 'Integración Continua'
 
@@ -152,3 +153,5 @@ def verifyBranchName(){
 
 
 }
+
+return this;
