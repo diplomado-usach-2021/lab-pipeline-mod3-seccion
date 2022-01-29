@@ -1,6 +1,6 @@
 
 
-def call(){
+def call(listaEtapas){
              figlet 'Integración Continua'
 
                         stage("compile"){
