@@ -23,7 +23,7 @@ def call(){
 
                                         def pipelineType = verifyBranchName();
         
-                                        if (pipelineType == "CD"){
+                                        if (pipelineType == "CI"){
 
                                                 def etapasDefinidas = ["","compile","unitTest","jar","sonar","nexusUpload"]
                                                 def etapasNoExistente = "";
