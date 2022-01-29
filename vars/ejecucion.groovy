@@ -14,7 +14,8 @@ def call(){
                                       def pipelineType = verifyBranchName();
         
                                         if (pipelineType == "CI"){
-                                            CI()    
+                                           // CI()    
+                                             CD()
                                         }else{
                                             CD()
                                         }
