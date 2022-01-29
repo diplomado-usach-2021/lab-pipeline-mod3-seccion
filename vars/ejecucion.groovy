@@ -1,8 +1,9 @@
+
 def call(){
-  
+def pipelineType = verifyBranchName();
     pipeline {
 
-    def pipelineType = verifyBranchName();
+
     agent any
 
     stages{
