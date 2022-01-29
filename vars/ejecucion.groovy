@@ -7,7 +7,7 @@ def pipelineType = verifyBranchName();
     agent any
 
     stages{
-           
+         script { 
            println "pipelineType  + ${pipelineType}"
             if (pipelineType == 'CI'){
                 figlet 'Integración Continua'
@@ -136,7 +136,7 @@ def pipelineType = verifyBranchName();
               }         
 
      }
-
+    }
   }  	
 }
 
