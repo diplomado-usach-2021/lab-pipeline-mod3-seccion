@@ -1,10 +1,12 @@
 def call(){
   
     pipeline {
+
+    def pipelineType = verifyBranchName();
     agent any
 
     stages{
-            def pipelineType = verifyBranchName();
+           
             if (pipelineType == 'CI'){
                 figlet 'Integración Continua'
 
