@@ -49,7 +49,7 @@ def call(){
                                                                                          
                                         }else{
 
-                                            def etapasDefinidas = ["","gitDiff","nexusDownload","run","test"]
+                                            def etapasDefinidas = ["","gitDiff","nexusDownload","run","test","gitMergeMaster","gitMergeDevelop","gitTagMaster"]
                                             def etapasNoExistente = "";
                                             def marca = false;
                                             for(etapa in listaEtapas){
