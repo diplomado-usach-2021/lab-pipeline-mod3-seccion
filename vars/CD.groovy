@@ -1,6 +1,6 @@
 
 
-def call(){
+def call(listaEtapas){
     
         figlet 'devilery Continua'
 
