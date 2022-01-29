@@ -52,6 +52,10 @@ def call(){
 
                         stage("gitCreateRelease"){
                                         figlet "Stage: ${env.STAGE_NAME}"
+                                        if (env.GIT_BRANCH == "develop"){
+                                            sh "git branch releaseV1-0-1"
+                                        }
+                                          sh "git branch borrarRama"
                         }
 
 }

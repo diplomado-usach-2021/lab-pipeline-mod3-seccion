@@ -5,6 +5,11 @@ def call(){
 
     agent any
 
+    
+    parameters {
+         string defaultValue: '', description: 'Agregar stage a ejecutar separados por coma', name: 'etapasPipeline'
+    }
+
     stages{
        
 
@@ -14,8 +19,7 @@ def call(){
                                       def pipelineType = verifyBranchName();
         
                                         if (pipelineType == "CI"){
-                                           // CI()    
-                                             CD()
+                                            CI()                                               
                                         }else{
                                             CD()
                                         }
@@ -26,7 +30,21 @@ def call(){
 
 
 
-              }         
+              }  
+              
+      post {
+		success {
+			   slackSend (color: '#00FF00', 
+               message: "Build Success lab-pipeline-mod3-seccion2 Ejecución exitosa"
+               )
+		}
+		
+		failure {
+            slackSend (color: '#FF0000', 
+                 message: "Build Failure lab-pipeline-mod3-seccion2 Ejecución fallida en stage ")
+		
+		}
+	 }      
   }  	
 }
 
