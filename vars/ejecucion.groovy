@@ -43,7 +43,9 @@ def call(){
                                                       println "error no existe las siguientes etapas : + ${etapasNoExistente}"
                                                        slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
                                                        throw new Exception("${etapasNoExistente}")  
-                                                    }                                               
+                                                    }   
+                                                }  
+                                                }                                          
                                         }else{
 
                                             def etapasDefinidas = ["","gitDiff","nexusDownload","run","test"]
@@ -65,6 +67,8 @@ def call(){
                                                     slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
                                                     throw new Exception("${etapasNoExistente}")  
                                                 }  
+                                                }  
+                                            }  
                                         }
 
                                     }
