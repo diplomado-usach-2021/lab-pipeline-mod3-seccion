@@ -29,23 +29,24 @@ def call(){
                                                 def etapasNoExistente = "";
                                                 def marca = false;
                                                 for(etapa in listaEtapas){
-                                                if (!etapasDefinidas.contains(etapa)){
-                                                    marca = true;
-                                                    if (etapasNoExistente == ""){
-                                                            etapasNoExistente = etapa;
-                                                    }else{
-                                                            etapasNoExistente = etapasNoExistente + "," + etapa ;
-                                                    }
-
-                                                    if (marca == false){
-                                                        CI(listaEtapas)
-                                                    }else{
-                                                      println "error no existe las siguientes etapas : + ${etapasNoExistente}"
-                                                       slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
-                                                       throw new Exception("${etapasNoExistente}")  
-                                                    }   
-                                                }  
-                                                }                                          
+                                                    if (!etapasDefinidas.contains(etapa)){
+                                                        marca = true;
+                                                        if (etapasNoExistente == ""){
+                                                                etapasNoExistente = etapa;
+                                                        }else{
+                                                                etapasNoExistente = etapasNoExistente + "," + etapa ;
+                                                         }
+                                                     }  
+                                                }
+                                                if (marca == false){
+                                                    CI(listaEtapas)
+                                                }else{
+                                                    println "error no existe las siguientes etapas : + ${etapasNoExistente}"
+                                                    slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
+                                                    throw new Exception("${etapasNoExistente}")  
+                                                }   
+                                               
+                                                                                         
                                         }else{
 
                                             def etapasDefinidas = ["","gitDiff","nexusDownload","run","test"]
@@ -54,21 +55,22 @@ def call(){
                                             for(etapa in listaEtapas){
                                             if (!etapasDefinidas.contains(etapa)){
                                                 marca = true;
-                                                if (etapasNoExistente == ""){
-                                                        etapasNoExistente = etapa;
-                                                }else{
-                                                        etapasNoExistente = etapasNoExistente + "," + etapa ;
-                                                }
-
-                                                if (marca == false){
-                                                    CD(listaEtapas)
-                                                }else{
-                                                    println "error no existe las siguientes etapas : + ${etapasNoExistente}"
-                                                    slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
-                                                    throw new Exception("${etapasNoExistente}")  
-                                                }  
-                                                }  
+                                                    if (etapasNoExistente == ""){
+                                                            etapasNoExistente = etapa;
+                                                    }else{
+                                                            etapasNoExistente = etapasNoExistente + "," + etapa ;
+                                                    }
+                                                 }  
                                             }  
+
+                                            if (marca == false){
+                                                CD(listaEtapas)
+                                            }else{
+                                                println "error no existe las siguientes etapas : + ${etapasNoExistente}"
+                                                slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
+                                                throw new Exception("${etapasNoExistente}")  
+                                            }  
+                                          
                                         }
 
                                     }
