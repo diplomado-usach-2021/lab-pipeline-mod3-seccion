@@ -30,7 +30,24 @@ def call(){
                         }
 
                         stage("nexusUpload"){
-                                        figlet "Stage: ${env.STAGE_NAME}"           
+                                figlet "Stage: ${env.STAGE_NAME}"
+                                STAGE = env.STAGE_NAME
+                                nexusPublisher nexusInstanceId: 'laboratorio3-nexus',
+                                nexusRepositoryId: 'laboratorio3-nexus',
+                                packages: [
+                                    [
+                                        $class: 'MavenPackage',
+                                        mavenAssetList: [
+                                            [classifier: '', extension: '', filePath: "${env.WORKSPACE}/build/DevOpsUsach2020-0.0.1.jar"]
+                                        ],
+                                        mavenCoordinate: [
+                                            artifactId: 'DevOpsUsach2020',
+                                            groupId: 'com.devopsusach2020',
+                                            packaging: 'jar',
+                                            version: '0.0.1'
+                                        ]
+                                    ]
+                                ]      
                         }
 
                         stage("gitCreateRelease"){
