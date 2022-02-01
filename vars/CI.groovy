@@ -7,7 +7,7 @@ def call(listaEtapas){
                      ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                           stage("compile"){
                                         figlet "Stage: ${env.STAGE_NAME}"
-                                        STAGE = env.STAGE_NAME
+                                        ETAPA_EJECUCION = env.STAGE_NAME
                                         sh  "chmod +x mvnw "
                         }
                  } 
@@ -17,7 +17,7 @@ def call(listaEtapas){
                         ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                             stage("unitTest"){
                                             figlet "Stage: ${env.STAGE_NAME}"
-                                            STAGE = env.STAGE_NAME
+                                            ETAPA_EJECUCION = env.STAGE_NAME
                                             sh  " ./mvnw clean test -e "
                             }
                      }
@@ -27,7 +27,7 @@ def call(listaEtapas){
                             stage("unitTest"){
                                 stage("jar"){
                                                 figlet "Stage: ${env.STAGE_NAME}"
-                                                STAGE = env.STAGE_NAME
+                                                ETAPA_EJECUCION = env.STAGE_NAME
                                                 sh  " ./mvnw clean package -e "
                                 }
                             }
@@ -36,7 +36,7 @@ def call(listaEtapas){
                         if ( listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                                 stage("sonar"){
                                                 figlet "Stage: ${env.STAGE_NAME}"
-                                                STAGE = env.STAGE_NAME
+                                                ETAPA_EJECUCION = env.STAGE_NAME
                                                 def nombreRepo = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                                                 def scannerHome = tool 'sonar-scanner';
                                                 withSonarQubeEnv('sonarqube-server') { 
@@ -48,7 +48,7 @@ def call(listaEtapas){
                             if (listaEtapas.contains("nexusUpload") ){
                                     stage("nexusUpload"){
                                             figlet "Stage: ${env.STAGE_NAME}"
-                                            STAGE = env.STAGE_NAME
+                                            ETAPA_EJECUCION = env.STAGE_NAME
                                             nexusPublisher nexusInstanceId: 'laboratorio3-nexus',
                                             nexusRepositoryId: 'laboratorio3-nexus',
                                             packages: [
@@ -70,7 +70,7 @@ def call(listaEtapas){
                 if (env.GIT_BRANCH == "develop"){
                         stage("gitCreateRelease"){
                                         figlet "Stage: ${env.STAGE_NAME}"
-                                         STAGE = env.STAGE_NAME
+                                         ETAPA_EJECUCION = env.STAGE_NAME
                                          //   sh "git branch releaseV1-0-1"
                                       
                         }
