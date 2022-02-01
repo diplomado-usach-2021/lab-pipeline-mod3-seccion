@@ -6,6 +6,7 @@ def call(){
 
     environment{
         ETAPA_EJECUCION = '';
+        pipelineType = verifyBranchName();
     }
 
     
@@ -86,7 +87,7 @@ def call(){
               }  
               
       post {
-             def pipelineType = verifyBranchName();
+         
 		success {
           
 			   slackSend (color: '#00FF00', 
