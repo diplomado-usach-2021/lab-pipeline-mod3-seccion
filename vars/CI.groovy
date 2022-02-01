@@ -6,7 +6,10 @@ def call(listaEtapas){
                  if (listaEtapas.contains("compile") || listaEtapas.contains("unitTest") || listaEtapas.contains("jar") 
                      ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                           stage("compile"){
-                                        env.STAGE = env.STAGE_NAME
+                                        println STAGE
+                                        println "${STAGE}"
+                                         println env.STAGE
+                                         STAGE = env.STAGE_NAME
                                         figlet "Stage: ${env.STAGE_NAME}"
                                         sh  "chmod +x mvnw "
                         }
@@ -16,7 +19,7 @@ def call(listaEtapas){
                      if (listaEtapas.contains("unitTest") || listaEtapas.contains("jar") 
                         ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                             stage("unitTest"){
-                                            env.STAGE = env.STAGE_NAME
+                                             STAGE = env.STAGE_NAME
                                             figlet "Stage: ${env.STAGE_NAME}"                                         
                                             sh  " ./mvnw clean test -e "
                             }
