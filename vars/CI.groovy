@@ -15,6 +15,10 @@ def call(listaEtapas){
 
                                         env.STAGE =  env.STAGE_NAME
 
+                                    withEnv([" STAGE = ${env.STAGE_NAME}"]) {
+                                            println "STAGE = ${env.STAGE}" // prints: FOO = newbar
+                                        }
+
                                         figlet "Stage: ${env.STAGE_NAME}"
                                         sh  "chmod +x mvnw "
                         }
