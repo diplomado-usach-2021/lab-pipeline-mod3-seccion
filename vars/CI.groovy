@@ -11,6 +11,7 @@ def call(listaEtapas){
 
                                         println STAGE
                                         println "${STAGE}"
+                                        println env.STAGE
 
                                         figlet "Stage: ${env.STAGE_NAME}"
                                         sh  "chmod +x mvnw "
@@ -22,6 +23,11 @@ def call(listaEtapas){
                         ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                             stage("unitTest"){
                                              STAGE = env.STAGE_NAME
+
+                                         println STAGE
+                                        println "${STAGE}"
+                                        println env.STAGE
+
                                             figlet "Stage: ${env.STAGE_NAME}"                                         
                                             sh  " ./mvnw clean test -e "
                             }
