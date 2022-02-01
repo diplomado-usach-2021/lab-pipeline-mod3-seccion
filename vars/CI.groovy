@@ -7,7 +7,7 @@ def call(listaEtapas){
                      ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                           stage("compile"){
                                         figlet "Stage: ${env.STAGE_NAME}"
-                                        STAGE = env.STAGE_NAME
+                                        STAGE = 'COMPILE' //env.STAGE_NAME
                                         sh  "chmod +x mvnw "
                         }
                  } 
