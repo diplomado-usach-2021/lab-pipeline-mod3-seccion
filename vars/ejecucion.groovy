@@ -1,14 +1,16 @@
+  environment{
+        STAGE = ''
+        pipelineType = verifyBranchName()
+    }
+
 
 def call(){
 
     pipeline {
     agent any
 
-    environment{
-        STAGE = '.';
-        pipelineType = verifyBranchName();
-    }
 
+  
     
     parameters {
          string defaultValue: '', description: 'Agregar stage a ejecutar separados por coma', name: 'etapasPipeline'
@@ -17,7 +19,7 @@ def call(){
     stages{
        
 
-                        stage("compile"){
+                        stage("pipeline"){
                                 steps{
                                     script {
 
