@@ -86,15 +86,15 @@ def call(){
               }  
               
       post {
-		success {
              def pipelineType = verifyBranchName();
+		success {
+          
 			   slackSend (color: '#00FF00', 
                      message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ][Resultado: Ok]"
                )
 		}
 		
 		failure {
-              def pipelineType = verifyBranchName();
             slackSend (color: '#FF0000', 
                  message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3  ${pipelineType}  ][Rama: ${GIT_LOCAL_BRANCH}][Stage: ][Resultado: No OK].")
 		
