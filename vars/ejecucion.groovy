@@ -2,8 +2,11 @@
 def call(){
 
     pipeline {
-
     agent any
+
+    environment{
+        STAGE = '';
+    }
 
     
     parameters {
@@ -68,7 +71,8 @@ def call(){
                                             }else{
                                                 println "error no existe las siguientes etapas : + ${etapasNoExistente}"
                                                 slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
-                                                throw new Exception("${etapasNoExistente}")  
+                                               // throw new Exception("${etapasNoExistente}")  
+                                               error "las siguientes etapas  no existen : ${etapasNoExistente} "
                                             }  
                                           
                                         }
@@ -84,13 +88,13 @@ def call(){
       post {
 		success {
 			   slackSend (color: '#00FF00', 
-               message: "Build Success lab-pipeline-mod3-seccion2 Ejecución exitosa"
+                     message: "[Grupo2][Pipeline IC][Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE}][Resultado: Ok]"
                )
 		}
 		
 		failure {
             slackSend (color: '#FF0000', 
-                 message: "Build Failure lab-pipeline-mod3-seccion2 Ejecución fallida en stage ")
+                 message: "[Grupo2][Pipeline Release][Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE}][Resultado: No OK].")
 		
 		}
 	 }      
