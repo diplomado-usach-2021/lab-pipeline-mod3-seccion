@@ -5,8 +5,8 @@ def call(){
     agent any
 
     environment{
-        STAGE = '';
-        pipelineType = verifyBranchName();
+        STAGE = ''
+        pipelineType = verifyBranchName()
     }
 
     
