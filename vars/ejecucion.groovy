@@ -87,7 +87,10 @@ def call(){
 
               }  
               
-      post {
+    
+  }  
+
+        post {
          
 		success {
           
@@ -101,8 +104,7 @@ def call(){
                  message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3  ${pipelineType}  ][Rama: ${GIT_LOCAL_BRANCH}][Stage:  ${STAGE} ][Resultado: No OK].")
 		
 		}
-	 }      
-  }  	
+	 }  	
 }
 
 
