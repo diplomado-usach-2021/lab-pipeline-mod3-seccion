@@ -5,9 +5,8 @@ def call(){
     agent any
 
     environment{
-        STAGE = '';
+        STAGE = '.';
         pipelineType = verifyBranchName();
-        PRUEBA1 = 'SADAS ';
     }
 
     
@@ -92,13 +91,13 @@ def call(){
 		success {
           
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${PRUEBA1} ][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE} ][Resultado: Ok]"
                )
 		}
 		
 		failure {
             slackSend (color: '#FF0000', 
-                 message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3  ${pipelineType}  ][Rama: ${GIT_LOCAL_BRANCH}][Stage:  ${PRUEBA1} ][Resultado: No OK].")
+                 message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3  ${pipelineType}  ][Rama: ${GIT_LOCAL_BRANCH}][Stage:  ${STAGE} ][Resultado: No OK].")
 		
 		}
 	 }      
