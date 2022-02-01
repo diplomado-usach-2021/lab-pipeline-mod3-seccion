@@ -89,14 +89,14 @@ def call(){
 		success {
  
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${ETAPA_EJECUCION}][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 [Rama: ${GIT_LOCAL_BRANCH}][Stage: ][Resultado: Ok]"
                )
 		}
 		
 		failure {
     
             slackSend (color: '#FF0000', 
-                 message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3][Rama: ${GIT_LOCAL_BRANCH}][Stage: ${ETAPA_EJECUCION}][Resultado: No OK].")
+                 message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3][Rama: ${GIT_LOCAL_BRANCH}][Stage: ][Resultado: No OK].")
 		
 		}
 	 }      
