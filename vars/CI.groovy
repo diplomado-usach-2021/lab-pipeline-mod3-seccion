@@ -13,6 +13,8 @@ def call(listaEtapas){
                                         println "${STAGE}"
                                         println env.STAGE
 
+                                        env.STAGE =  env.STAGE_NAME
+
                                         figlet "Stage: ${env.STAGE_NAME}"
                                         sh  "chmod +x mvnw "
                         }
