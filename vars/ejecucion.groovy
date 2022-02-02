@@ -1,6 +1,8 @@
 import helpers.*
+import groovy.transform.Field
 
-@Field var1 = 'var1'
+
+@Field String var2 = 'var2'
 def call(){
 
     pipeline {
@@ -109,7 +111,7 @@ def call(){
 		success {
           
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${var1} ][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE} ][Resultado: Ok]"
                )
 		}
 		
