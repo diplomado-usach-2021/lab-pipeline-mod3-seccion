@@ -96,7 +96,7 @@ def call(listaEtapas){
 
                                         println env.GIT_BRANCH 
                                         println GIT_LOCAL_BRANCH 
-                                        git.merge(GIT_LOCAL_BRANCH,'feature-test');
+                                        git.merge('feature-test' ,GIT_LOCAL_BRANCH);
                                          //   sh "git branch releaseV1-0-1"
                                       
                         }
