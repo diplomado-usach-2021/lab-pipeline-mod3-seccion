@@ -92,7 +92,7 @@ def call(){
 		success {
           
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE} ][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${pruebaVariable} ][Resultado: Ok]"
                )
 		}
 		
