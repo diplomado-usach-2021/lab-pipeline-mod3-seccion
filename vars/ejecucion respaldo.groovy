@@ -13,7 +13,6 @@ def call(){
 
     
     parameters {
-         choice choices: ['gradle', 'maven'], description: 'Indicar herramienta de construcción', name: 'builtTool'
          string defaultValue: '', description: 'Agregar stage a ejecutar separados por coma', name: 'etapasPipeline'
     }
 
@@ -23,13 +22,6 @@ def call(){
                         stage("pipeline"){
                                 steps{
                                     script {
-
-                                        if (params.builtTool == "gradle") {
-
-                                        } else {
-
-                                        }
-
                                         
                                         def etapasPipeline = params.etapasPipeline;
                                         def listaEtapas = etapasPipeline.split(',')
