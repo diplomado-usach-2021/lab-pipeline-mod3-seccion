@@ -141,11 +141,9 @@ def verifyBranchName(){
 }
 
 def TestObj() {
-    def properties = [:]
-    def getProperty(String name) { properties[name] }
-    void setProperty(String name, value) { properties[name] = value }
-
-    void setValues(def fieldName, def fieldVal) {setProperty(fieldName, fieldVal)}
+    private String name
+    String getName() { return name }
+    void setName(String name) { this.name = name }
 }
 
 return this;
