@@ -93,6 +93,8 @@ def call(listaEtapas){
                                         sh "git pull --all --tags "
                                         sh "git branch --all "
                                         sh "git fetch "
+                                        sh " git show-ref"
+                                       
                                         
                                         def git = new helpers.Git();
 
