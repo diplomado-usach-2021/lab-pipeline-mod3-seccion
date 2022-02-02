@@ -90,6 +90,8 @@ def call(listaEtapas){
 
                                          figlet "Stage: ${env.STAGE_NAME}"
                                          
+                                        sh "git pull --all --tags "
+                                        sh "git branch --all "
                                         def git = new helpers.Git();
 
                                         println env.GIT_BRANCH 
