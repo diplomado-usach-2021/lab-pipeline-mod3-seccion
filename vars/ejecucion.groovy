@@ -1,8 +1,6 @@
 import helpers.*
 
-
-def STAGE123
-
+@Field var1 = 'var1'
 def call(){
 
     pipeline {
@@ -111,7 +109,7 @@ def call(){
 		success {
           
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE123} ][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${var1} ][Resultado: Ok]"
                )
 		}
 		
