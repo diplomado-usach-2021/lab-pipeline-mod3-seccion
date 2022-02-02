@@ -21,7 +21,7 @@ def call(){
                         stage("pipeline"){
                                 steps{
                                     script {
-                                       STAGE = 'prueba sadasdasdasd';     
+                                        
                                         def etapasPipeline = params.etapasPipeline;
                                         def listaEtapas = etapasPipeline.split(',')
                                         println "listaEtapas  + ${listaEtapas}"
@@ -44,7 +44,8 @@ def call(){
                                                      }  
                                                 }
                                                 if (marca == false){
-                                                    CI(listaEtapas)
+                                                      CI(listaEtapas)
+                                                      STAGE = 'prueba sadasdasdasd';  
                                                 }else{
                                                     println "error no existe las siguientes etapas : + ${etapasNoExistente}"
                                                     slackSend (color: '#FF0000', message: "Build Failure Build Success [Víctor Menares] [${env.JOB_NAME}] [${params.builtTool}], las siguientes etapas  no existen : ${etapasNoExistente} ")
