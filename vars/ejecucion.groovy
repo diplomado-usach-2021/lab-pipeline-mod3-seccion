@@ -1,7 +1,9 @@
+package ejecucion
 import helpers.*
-import groovy.transform.Field
 
-class TestObj {
+
+
+def TestObj {
     def properties = [:]
     def getProperty(String name) { properties[name] }
     void setProperty(String name, value) { properties[name] = value }
