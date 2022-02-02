@@ -32,6 +32,7 @@ def call(listaEtapas,pipelineType){
                                                                     stage("sonar"){
                                                                                     figlet "Stage: ${env.STAGE_NAME}"
                                                                                     STAGE = env.STAGE_NAME
+                                                                                     def nombreRepo = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                                                                                     def scannerHome = tool 'sonar-scanner';
                                                                                     withSonarQubeEnv('sonarqube-server') { 
                                                                                                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${nombreRepo}-${GIT_LOCAL_BRANCH}-${env.BUILD_NUMBER} -Dsonar.sources=src -Dsonar.java.binaries=build "
@@ -40,28 +41,28 @@ def call(listaEtapas,pipelineType){
                                                                     }
                                                                 }
                                                                 
-                                                 if (listaEtapas.contains("nexusUpload") ){
-                                                                    stage("nexusUpload"){
-                                                                            figlet "Stage: ${env.STAGE_NAME}"
-                                                                            STAGE = env.STAGE_NAME
-                                                                            nexusPublisher nexusInstanceId: 'laboratorio3-nexus',
-                                                                            nexusRepositoryId: 'laboratorio3-nexus',
-                                                                            packages: [
-                                                                                [
-                                                                                    $class: 'MavenPackage',
-                                                                                    mavenAssetList: [
-                                                                                        [classifier: '', extension: '', filePath: "${env.WORKSPACE}/build/libs/DevOpsUsach2020-0.0.1.jar"]
-                                                                                    ],
-                                                                                    mavenCoordinate: [
-                                                                                        artifactId: 'DevOpsUsach2020',
-                                                                                        groupId: 'com.devopsusach2020',
-                                                                                        packaging: 'jar',
-                                                                                        version: '0.0.1'
-                                                                                    ]
-                                                                                ]
-                                                                            ]      
-                                                                    }
+                                                    if (listaEtapas.contains("nexusUpload") ){
+                                                            stage("nexusUpload"){
+                                                                    figlet "Stage: ${env.STAGE_NAME}"
+                                                                    STAGE = env.STAGE_NAME
+                                                                    nexusPublisher nexusInstanceId: 'laboratorio3-nexus',
+                                                                    nexusRepositoryId: 'laboratorio3-nexus',
+                                                                    packages: [
+                                                                        [
+                                                                            $class: 'MavenPackage',
+                                                                            mavenAssetList: [
+                                                                                [classifier: '', extension: '', filePath: "${env.WORKSPACE}/build/libs/DevOpsUsach2020-0.0.1.jar"]
+                                                                            ],
+                                                                            mavenCoordinate: [
+                                                                                artifactId: 'DevOpsUsach2020',
+                                                                                groupId: 'com.devopsusach2020',
+                                                                                packaging: 'jar',
+                                                                                version: '0.0.1'
+                                                                            ]
+                                                                        ]
+                                                                    ]      
                                                             }
+                                                    }
                                         if (GIT_LOCAL_BRANCH == "develop"){
                                                 stage("gitCreateRelease"){
                                                                 figlet "Stage: ${env.STAGE_NAME}"
