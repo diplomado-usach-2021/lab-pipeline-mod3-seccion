@@ -3,13 +3,7 @@ import helpers.*
 
 
 
-def TestObj {
-    def properties = [:]
-    def getProperty(String name) { properties[name] }
-    void setProperty(String name, value) { properties[name] = value }
 
-    void setValues(def fieldName, def fieldVal) {setProperty(fieldName, fieldVal)}
-}
 
 def call(){
 
@@ -144,6 +138,14 @@ def verifyBranchName(){
     }
 
 
+}
+
+def TestObj() {
+    def properties = [:]
+    def getProperty(String name) { properties[name] }
+    void setProperty(String name, value) { properties[name] = value }
+
+    void setValues(def fieldName, def fieldVal) {setProperty(fieldName, fieldVal)}
 }
 
 return this;
