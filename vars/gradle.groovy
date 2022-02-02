@@ -26,24 +26,7 @@ def call(listaEtapas,pipelineType){
                                         }
                                 } 
 
-                                    if (listaEtapas.contains("") ||  listaEtapas.contains("run")){ 
-                                            stage("Run"){
-                                                    STAGE = env.STAGE_NAME
-                                                    figlet "Stage: ${env.STAGE_NAME}"
-                                                    println "Stage: ${env.STAGE_NAME}"    
-                                                    sh " nohup bash gradlew bootRun & "
-                                                    sleep 20        
-                                            }
-                                    }
-                                            
-                                    if (listaEtapas.contains("") ||  listaEtapas.contains("unitTest")){    
-                                            stage("Testing Application"){
-                                                            STAGE = env.STAGE_NAME
-                                                            figlet "Stage: ${env.STAGE_NAME}"
-                                                            println "Stage: ${env.STAGE_NAME}"
-                                                            sh "curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"                         
-                                            }
-                                        }
+                              
 
                                         if ( listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
                                                                     stage("sonar"){
