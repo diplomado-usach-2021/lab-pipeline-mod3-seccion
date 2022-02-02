@@ -95,7 +95,8 @@ def call(listaEtapas){
                                       def prueba =  sh " git ls-remote  --heads origin release-v1-0-1-1-1"
 
                                       if (prueba != ""){
-                                           sh " git branch -d release-v1-0-1"
+                                          println prueba
+                                           sh " git branch -d release-v1-0-1-1-1"
                                       }
                                         sh " git branch release-v1-0-1-1-1 "
                                         sh " git push origin release-v1-0-1-1-1  "
