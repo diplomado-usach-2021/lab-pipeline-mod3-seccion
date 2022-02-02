@@ -13,7 +13,7 @@ def call(){
     
     parameters {
          string defaultValue: '', description: 'Agregar stage a ejecutar separados por coma', name: 'etapasPipeline'
-    }D
+    }
 
     stages{
        
@@ -21,9 +21,7 @@ def call(){
                         stage("pipeline"){
                                 steps{
                                     script {
-
-
-                                        STAGE = 'prueba';                                            
+          STAGE = 'prueba';     
                                         def etapasPipeline = params.etapasPipeline;
                                         def listaEtapas = etapasPipeline.split(',')
                                         println "listaEtapas  + ${listaEtapas}"
