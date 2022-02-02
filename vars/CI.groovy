@@ -92,7 +92,7 @@ def call(listaEtapas){
                                       //  sh " git branch -d release-v1-0-1 "
           
 
-                                        sh "  git ls-remote  --heads origin  release-v1-0-1-1-0 && git branch -d origin release-v1-0-1-1-0  "
+                                        sh "  git ls-remote  --heads origin  release-v1-0-1-1-0 &&  git push origin --delete release-v1-0-1-1-0  "
                                         sh " git branch release-v1-0-1-1-0 "
                                         sh " git push origin release-v1-0-1-1-0  "
                                       
