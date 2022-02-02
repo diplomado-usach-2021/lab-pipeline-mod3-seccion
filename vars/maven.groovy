@@ -28,6 +28,7 @@ def call(listaEtapas,pipelineType){
 
                                                                         figlet "Stage: ${env.STAGE_NAME}"
                                                                         sh  "chmod +x mvnw "
+                                                                        sh " ./mvnw clean compile -e"
                                                         }
                                                 } 
                                         
@@ -47,14 +48,13 @@ def call(listaEtapas,pipelineType){
                                                     }
 
                                                     if (listaEtapas.contains("jar") 
-                                                        ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
-                                                            stage("unitTest"){
+                                                        ||  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){                                  
                                                                 stage("jar"){
                                                                                 figlet "Stage: ${env.STAGE_NAME}"
                                                                                 STAGE = env.STAGE_NAME
                                                                                 sh  " ./mvnw clean package -e "
                                                                 }
-                                                            }
+                                                            
                                                         }
 
                                                         if ( listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
