@@ -1,4 +1,4 @@
-
+import helpers.*
 
 def call(listaEtapas){
              figlet 'Integración Continua'
@@ -83,14 +83,22 @@ def call(listaEtapas){
                                             ]      
                                     }
                             }
-                if (env.GIT_BRANCH == "develop"){
+              //  if (GIT_LOCAL_BRANCH == "develop"){
                         stage("gitCreateRelease"){
                                         figlet "Stage: ${env.STAGE_NAME}"
                                          STAGE = env.STAGE_NAME
+
+                                         figlet "Stage: ${env.STAGE_NAME}"
+                                         
+                                        def git = new helpers.Git();
+
+                                        println env.GIT_BRANCH 
+                                        println GIT_LOCAL_BRANCH 
+                                        git.merge(GIT_LOCAL_BRANCH, 'ramaprueba');
                                          //   sh "git branch releaseV1-0-1"
                                       
                         }
-                  }       
+                //  }       
 
 }
 
