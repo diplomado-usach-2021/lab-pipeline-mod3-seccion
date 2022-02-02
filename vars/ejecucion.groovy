@@ -21,7 +21,7 @@ def call(){
                         stage("pipeline"){
                                 steps{
                                     script {
-          STAGE = 'prueba';     
+                                       STAGE = 'prueba sadasdasdasd';     
                                         def etapasPipeline = params.etapasPipeline;
                                         def listaEtapas = etapasPipeline.split(',')
                                         println "listaEtapas  + ${listaEtapas}"
