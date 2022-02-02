@@ -90,7 +90,10 @@ def call(listaEtapas){
                                         figlet "Stage: ${env.STAGE_NAME}"
                                       
                                       //  sh " git branch -d release-v1-0-1 "
-                           
+                                        when { branch "release-v1-0-1-1-1" }
+                                          steps { 
+                                           sh " git branch -d release-v1-0-1-1-1 "
+                                         }
 
                                         sh "git ls-remote --exit-code --heads origin release-v1-0-1-1-1"
                                         sh " git branch release-v1-0-1-1-1 "
