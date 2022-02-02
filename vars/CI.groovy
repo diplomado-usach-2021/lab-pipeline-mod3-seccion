@@ -88,7 +88,7 @@ def call(listaEtapas){
                                         figlet "Stage: ${env.STAGE_NAME}"
                                          STAGE = env.STAGE_NAME
                                         figlet "Stage: ${env.STAGE_NAME}"
-                                        sh " git branch -d release-v1-0-1 "
+                                      //  sh " git branch -d release-v1-0-1 "
                                         sh " git branch release-v1-0-1 "
                                       
                         }
