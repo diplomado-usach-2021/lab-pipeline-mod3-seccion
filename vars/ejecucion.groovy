@@ -38,34 +38,44 @@ def call(){
                                         def pipelineType = verifyBranchName();
         
 
-                                                def etapasDefinidasMaven = ["","compile","unitTest","jar","sonar","nexusUpload","gitDiff","nexusDownload","run","test","gitMergeMaster","gitMergeDevelop","gitTagMaster"]
-                                                def etapasDefinidasGradle =  ["","build","sonar","nexusUpload","gitDiff","nexusDownload","run","test","gitMergeMaster","gitMergeDevelop","gitTagMaster"]
+                                                def etapasDefinidasMavenCI = ["","compile","unitTest","jar","sonar","nexusUpload"]
+                                                def etapasDefinidasGradleCI =  ["","build","sonar","nexusUpload"]
+                                                
+                                                def etapasDefinidasMavenCD = ["","gitDiff","nexusDownload","run","test","gitMergeMaster","gitMergeDevelop","gitTagMaster"]
+                                                def etapasDefinidasGradleCD =  ["","gitDiff","nexusDownload","run","test","gitMergeMaster","gitMergeDevelop","gitTagMaster"]
+                                                
                                                 def etapasNoExistente = "";
                                                 def marca = false;
 
+                                                def etapasDefinidas;
                                                 if (params.builtTool == "gradle") {
-                                                    for(etapa in listaEtapas){
-                                                            if (!etapasDefinidasMaven.contains(etapa)){
-                                                                marca = true;
-                                                                if (etapasNoExistente == ""){
-                                                                        etapasNoExistente = etapa;
-                                                                }else{
-                                                                        etapasNoExistente = etapasNoExistente + "," + etapa ;
-                                                                }
-                                                            }  
-                                                        }
-                                                    } else {
-                                                        for(etapa in listaEtapas){
-                                                            if (!etapasDefinidasGradle.contains(etapa)){
-                                                                marca = true;
-                                                                if (etapasNoExistente == ""){
-                                                                        etapasNoExistente = etapa;
-                                                                }else{
-                                                                        etapasNoExistente = etapasNoExistente + "," + etapa ;
-                                                                }
-                                                            }  
-                                                        }
+                                                    if (pipelineType = 'CI'){
+                                                        etapasDefinidas = etapasDefinidasGradleCI
+                                                    }else{
+                                                        etapasDefinidas = etapasDefinidasGradleCD
                                                     }
+                                                    
+                                                } else {
+                                                    if (pipelineType = 'CI'){
+                                                        etapasDefinidas = etapasDefinidasMavenCI
+                                                    }else{
+                                                        etapasDefinidas = etapasDefinidasMavenCD                                                     
+                                                    }
+                                                }
+
+
+                                          
+                                                    for(etapa in listaEtapas){
+                                                            if (!etapasDefinidas.contains(etapa)){
+                                                                marca = true;
+                                                                if (etapasNoExistente == ""){
+                                                                        etapasNoExistente = etapa;
+                                                                }else{
+                                                                        etapasNoExistente = etapasNoExistente + "," + etapa ;
+                                                                }
+                                                            }  
+                                                        }
+                                               
                                       
                                                 if (marca == false){
                                                      // CI(listaEtapas)
