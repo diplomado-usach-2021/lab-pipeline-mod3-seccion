@@ -57,18 +57,19 @@ def call(listaEtapas,pipelineType){
                                                             
                                                         }
 
-                                                        if ( listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
-                                                                stage("sonar"){
-                                                                                figlet "Stage: ${env.STAGE_NAME}"
-                                                                                STAGE = env.STAGE_NAME
-                                                                                def nombreRepo = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-                                                                                def scannerHome = tool 'sonar-scanner';
-                                                                                withSonarQubeEnv('sonarqube-server') { 
-                                                                                                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${nombreRepo}-${env.GIT_BRANCH}-${env.BUILD_NUMBER} -Dsonar.sources=src -Dsonar.java.binaries=build "
-                                                                                }
+                                                          if ( listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){
+                                                                    stage("sonar"){
+                                                                                    figlet "Stage: ${env.STAGE_NAME}"
+                                                                                    STAGE = env.STAGE_NAME
+                                                                                    def scannerHome = tool 'sonar-scanner';
+                                                                                    withSonarQubeEnv('sonarqube-server') { 
+                                                                                                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${nombreRepo}-${GIT_LOCAL_BRANCH}-${env.BUILD_NUMBER} -Dsonar.sources=src -Dsonar.java.binaries=build "
+                                                                                    }
 
+                                                                    }
                                                                 }
-                                                            }
+
+
                                                             if (listaEtapas.contains("nexusUpload") ){
                                                                     stage("nexusUpload"){
                                                                             figlet "Stage: ${env.STAGE_NAME}"
