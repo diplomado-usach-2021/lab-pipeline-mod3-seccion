@@ -90,9 +90,8 @@ def call(listaEtapas){
 
                                          figlet "Stage: ${env.STAGE_NAME}"
                                          
-                                        sh "git pull --all --tags "
+
                                         sh "git branch --all "
-                                        sh "git fetch "
                                         sh " git show-ref"
                                        
                                         
