@@ -87,20 +87,9 @@ def call(listaEtapas){
                         stage("gitCreateRelease"){
                                         figlet "Stage: ${env.STAGE_NAME}"
                                          STAGE = env.STAGE_NAME
-
-                                         figlet "Stage: ${env.STAGE_NAME}"
-                                         
-
-                                        sh "git branch --all "
-                                        sh " git show-ref"
-                                       
-                                        
-                                        def git = new helpers.Git();
-
-                                        println env.GIT_BRANCH 
-                                        println GIT_LOCAL_BRANCH 
-                                        git.merge(GIT_LOCAL_BRANCH,"ramaprueba2");
-                                         //   sh "git branch releaseV1-0-1"
+                                        figlet "Stage: ${env.STAGE_NAME}"
+                                    
+                                        sh " git brach release-v1-0-1 "
                                       
                         }
                 //  }       

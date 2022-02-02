@@ -53,6 +53,11 @@ def call(listaEtapas){
                         stage("gitMergeMaster"){
                                         STAGE = env.STAGE_NAME
                                         figlet "Stage: ${env.STAGE_NAME}"
+                                        def git = new helpers.Git();
+                                        println env.GIT_BRANCH 
+                                        println GIT_LOCAL_BRANCH 
+                                        git.merge(GIT_LOCAL_BRANCH,"main");
+                                        
                         }
                  }
 
@@ -61,13 +66,21 @@ def call(listaEtapas){
                     stage("gitMergeDevelop"){
                                     figlet "Stage: ${env.STAGE_NAME}"
                                     STAGE = env.STAGE_NAME
+                                   def git = new helpers.Git();
+                                   println env.GIT_BRANCH 
+                                   println GIT_LOCAL_BRANCH 
+                                   git.merge(GIT_LOCAL_BRANCH,"develop");
+                                  
                     }
                  }
                     if (listaEtapas.contains("gitTagMaster")  ){
 
                         stage("gitTagMaster"){
-                                        figlet "Stage: ${env.STAGE_NAME}"
-                                        STAGE = env.STAGE_NAME
+                            figlet "Stage: ${env.STAGE_NAME}"
+                            STAGE = env.STAGE_NAME
+                            def git = new helpers.Git();
+                            git.tag(GIT_LOCAL_BRANCH, 'main')
+                                  
                         }
                     }
 
