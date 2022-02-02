@@ -1,3 +1,4 @@
+package ejecucion
 import helpers.*
 
 /*
@@ -5,6 +6,8 @@ import helpers.*
 	def ejecucion = load 'script.groovy'
 	ejecucion.call()
 */
+
+def prueba;
 
 def call(listaEtapas,pipelineType){
             figlet 'gradle'

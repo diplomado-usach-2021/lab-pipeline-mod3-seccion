@@ -1,9 +1,4 @@
-package ejecucion
 import helpers.*
-
-
-
-
 
 def call(){
 
@@ -138,12 +133,6 @@ def verifyBranchName(){
     }
 
 
-}
-
-def TestObj() {
-    private String name
-    String getName() { return name }
-    void setName(String name) { this.name = name }
 }
 
 return this;

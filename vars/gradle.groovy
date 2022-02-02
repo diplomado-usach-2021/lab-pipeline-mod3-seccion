@@ -1,5 +1,4 @@
 import helpers.*
-import ejecucion.*
 /*
 	forma de invocación de método call:
 	def ejecucion = load 'script.groovy'
@@ -16,8 +15,8 @@ def call(listaEtapas,pipelineType){
                                     stage("Build & unit test"){
 
 
-                                                    def test = new TestObj()
-                                                                                
+                                                    def test = new prueba
+                                                                          
                                                     STAGE = env.STAGE_NAME
                                                     figlet "Stage: ${env.STAGE_NAME}"
                                                     sh " whoami; ls -ltr "
