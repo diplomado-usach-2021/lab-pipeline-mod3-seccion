@@ -1,8 +1,14 @@
 import helpers.*
 import groovy.transform.Field
 
+class TestObj {
+    def properties = [:]
+    def getProperty(String name) { properties[name] }
+    void setProperty(String name, value) { properties[name] = value }
 
-@Field String var2 = 'var2'
+    void setValues(def fieldName, def fieldVal) {setProperty(fieldName, fieldVal)}
+}
+
 def call(){
 
     pipeline {
@@ -111,7 +117,7 @@ def call(){
 		success {
           
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${var2} ][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE} ][Resultado: Ok]"
                )
 		}
 		
