@@ -1,5 +1,5 @@
 
-def pruebaVariable
+
 def call(listaEtapas){
              figlet 'Integración Continua'
 
@@ -16,7 +16,7 @@ def call(listaEtapas){
                                         env.STAGE =  env.STAGE_NAME
 
                                         pruebaVariable = env.STAGE_NAME;
-                                         println pruebaVariable;
+                                         println pruebaVariable
 
                                         figlet "Stage: ${env.STAGE_NAME}"
                                         sh  "chmod +x mvnw "

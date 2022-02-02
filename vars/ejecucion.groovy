@@ -13,7 +13,7 @@ def call(){
     
     parameters {
          string defaultValue: '', description: 'Agregar stage a ejecutar separados por coma', name: 'etapasPipeline'
-    }
+    }D
 
     stages{
        
@@ -22,6 +22,8 @@ def call(){
                                 steps{
                                     script {
 
+
+                                        STAGE = 'prueba';                                            
                                         def etapasPipeline = params.etapasPipeline;
                                         def listaEtapas = etapasPipeline.split(',')
                                         println "listaEtapas  + ${listaEtapas}"
@@ -92,7 +94,7 @@ def call(){
 		success {
           
 			   slackSend (color: '#00FF00', 
-                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${pruebaVariable} ][Resultado: Ok]"
+                     message: "[Grupo2][Pipeline pipeline-shared-library-laboratorio3 ${pipelineType}] [Rama: ${GIT_LOCAL_BRANCH}][Stage: ${STAGE} ][Resultado: Ok]"
                )
 		}
 		
