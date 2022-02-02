@@ -12,11 +12,7 @@ def call(listaEtapas,pipelineType){
                         figlet 'Integración Continua'
 
                                 if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
-                                    stage("Build & unit test"){
-
-
-                                                    def test = new prueba
-                                                                          
+                                    stage("Build & unit test"){                                 
                                                     STAGE = env.STAGE_NAME
                                                     figlet "Stage: ${env.STAGE_NAME}"
                                                     sh " whoami; ls -ltr "
