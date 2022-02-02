@@ -92,6 +92,8 @@ def call(listaEtapas){
                                          
                                         sh "git pull --all --tags "
                                         sh "git branch --all "
+                                        sh "git fetch "
+                                        
                                         def git = new helpers.Git();
 
                                         println env.GIT_BRANCH 
