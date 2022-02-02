@@ -14,6 +14,17 @@ def call(listaEtapas,pipelineType){
 
                                 if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
                                     stage("Build & unit test"){
+
+
+                                                    def test = new TestObj()
+                                                    test.anyField = "anyValue"
+                                                    println test.anyField
+
+                                                    test.setValues("field1", "someValue")
+                                                    println test.field1
+
+                                                    test.setValues("field2", "anotherValue")
+                                                    println test.field2                                        
                                                     STAGE = env.STAGE_NAME
                                                     figlet "Stage: ${env.STAGE_NAME}"
                                                     sh " whoami; ls -ltr "
