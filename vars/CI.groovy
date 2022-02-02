@@ -92,7 +92,7 @@ def call(listaEtapas){
                                       //  sh " git branch -d release-v1-0-1 "
                                       println env.BRANCH_NAME
 
-                                        sh "git ls-remote --exit-code --heads origin release-v1-0-1-1-1"
+                                      def prueba =  sh " git ls-remote --exit-code --heads origin release-v1-0-1-1-1"
                                         sh " git branch release-v1-0-1-1-1 "
                                         sh " git push origin release-v1-0-1-1-1  "
                                       
