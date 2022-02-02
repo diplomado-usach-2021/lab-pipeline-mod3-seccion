@@ -6,7 +6,7 @@ import helpers.*
 	ejecucion.call()
 */
 
-def call(listaEtapas,pipelineType){
+def call(listaEtapas,pipelineType,STAGE){
             figlet 'gradle'
             figlet pipelineType
                     if (pipelineType == 'CI'){

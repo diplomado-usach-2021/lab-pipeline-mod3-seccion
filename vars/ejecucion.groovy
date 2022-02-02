@@ -80,7 +80,7 @@ def call(){
                                                 if (marca == false){
                                                      // CI(listaEtapas)
                                                     if (params.builtTool == "gradle") {
-                                                         gradle(listaEtapas,verifyBranchName())
+                                                         gradle(listaEtapas,verifyBranchName(),STAGE)
                                                         } else {
                                                          maven(listaEtapas,verifyBranchName())
                                                     }
