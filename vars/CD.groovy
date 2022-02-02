@@ -1,5 +1,5 @@
 
-def pruebaVariable
+
 def call(listaEtapas){
     
         figlet 'devilery Continua'
