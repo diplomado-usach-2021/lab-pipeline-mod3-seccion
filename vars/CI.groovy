@@ -87,19 +87,10 @@ def call(listaEtapas){
                         stage("gitCreateRelease"){
                                         figlet "Stage: ${env.STAGE_NAME}"
                                          STAGE = env.STAGE_NAME
-                                        figlet "Stage: ${env.STAGE_NAME}"
-                                      
-                                      //  sh " git branch -d release-v1-0-1 "
-                                      println env.BRANCH_NAME
-
-                                      def prueba =  sh " git ls-remote  --heads origin release-v1-0-1-1-1"
-
-                                      if (prueba != ""){
-                                          println prueba
-                                           sh " git branch -d release-v1-0-1-1-1"
-                                      }
-                                        sh " git branch release-v1-0-1-1-1 "
-                                        sh " git push origin release-v1-0-1-1-1  "
+                                        figlet "Stage: ${env.STAGE_NAME}"                                     
+                                      //  sh " git branch -d release-v1-0-1-1-1 "
+                                        sh " git branch -d release-v1-0-1-1-0 || git branch release-v1-0-1-1-0 "
+                                        sh " git push origin release-v1-0-1-1-0  "
                                       
                         }
                 //  }       
