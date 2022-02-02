@@ -49,14 +49,14 @@ def call(){
 
                                                 def etapasDefinidas;
                                                 if (params.builtTool == "gradle") {
-                                                    if (pipelineType = 'CI'){
+                                                    if (pipelineType == 'CI'){
                                                         etapasDefinidas = etapasDefinidasGradleCI
                                                     }else{
                                                         etapasDefinidas = etapasDefinidasGradleCD
                                                     }
                                                     
                                                 } else {
-                                                    if (pipelineType = 'CI'){
+                                                    if (pipelineType == 'CI'){
                                                         etapasDefinidas = etapasDefinidasMavenCI
                                                     }else{
                                                         etapasDefinidas = etapasDefinidasMavenCD                                                     
