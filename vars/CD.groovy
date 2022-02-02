@@ -11,6 +11,9 @@ def call(listaEtapas){
                     stage("gitDiff"){
                                     figlet "Stage: ${env.STAGE_NAME}"
                                      STAGE = env.STAGE_NAME
+                                     sh "git reset --hard HEAD; git checkout ${GIT_LOCAL_BRANCH }; git pull origin ${GIT_LOCAL_BRANCH }"
+                                     sh "git reset --hard HEAD; git checkout main; git pull origin main "
+                                     sh "git diff main "
                     }
 
                }
