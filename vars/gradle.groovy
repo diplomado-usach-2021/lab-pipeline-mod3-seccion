@@ -34,11 +34,11 @@ def call(listaEtapas,pipelineType){
                                                                                     STAGE = env.STAGE_NAME
                                                                                      def nombreRepo = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                                                                                     println nombreRepo
-                                                                                    println env.GIT_BRANCH
+                                                                                    println GIT_LOCAL_BRANCH
                                                                                     println env.BUILD_NUMBER
                                                                                     def scannerHome = tool 'sonar-scanner';
                                                                                     withSonarQubeEnv('sonarqube-server') { 
-                                                                                                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${nombreRepo}-${env.GIT_BRANCH}-${env.BUILD_NUMBER} -Dsonar.sources=src -Dsonar.java.binaries=build "
+                                                                                                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${nombreRepo}-${GIT_LOCAL_BRANCH}-${env.BUILD_NUMBER} -Dsonar.sources=src -Dsonar.java.binaries=build "
                                                                                     }
 
                                                                     }
