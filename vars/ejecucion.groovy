@@ -1,5 +1,8 @@
 import helpers.*
 
+
+def STAGE
+
 def call(){
 
     pipeline {
@@ -80,7 +83,7 @@ def call(){
                                                 if (marca == false){
                                                      // CI(listaEtapas)
                                                     if (params.builtTool == "gradle") {
-                                                         gradle(listaEtapas,verifyBranchName(),STAGE)
+                                                         gradle(listaEtapas,verifyBranchName())
                                                         } else {
                                                          maven(listaEtapas,verifyBranchName())
                                                     }
