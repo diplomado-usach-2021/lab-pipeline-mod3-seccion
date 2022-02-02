@@ -12,7 +12,7 @@ def call(listaEtapas,pipelineType){
                     if (pipelineType == 'CI'){
                         figlet 'Integración Continua'
 
-                                if (listaEtapas.contains("build")  listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
+                                if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
                                     stage("Build & unit test"){
                                                     STAGE = env.STAGE_NAME
                                                     println "Stage: ${env.STAGE_NAME}"
