@@ -1,9 +1,9 @@
 package variable
 
-class variable{
+class Variable{
   String marca
   String modelo
 
-   variable(){}
+   Variable(){}
 
 }

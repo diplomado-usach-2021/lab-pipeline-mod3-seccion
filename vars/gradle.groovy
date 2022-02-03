@@ -15,11 +15,7 @@ def call(listaEtapas,pipelineType){
                                 if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
                                     stage("Build & unit test"){              
 
-                                        def miPC= new variable(marca:"DELL",modelo:"1501")
-
-                                        //mostramos los valores
-                                        println "Mi PC:"
-                                        println "marca >> ${miPC.marca} , modelo >> ${miPC.modelo}"      
+                                       def miPC=new Variable() 
 
                                                     STAGE = env.STAGE_NAME
                                                     figlet "Stage: ${env.STAGE_NAME}"
