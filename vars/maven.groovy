@@ -7,8 +7,6 @@ import helpers.*
 	ejecucion.call()
 */
 
-def prueba;
-
 def call(listaEtapas,pipelineType){
             figlet 'gradle'
             figlet pipelineType

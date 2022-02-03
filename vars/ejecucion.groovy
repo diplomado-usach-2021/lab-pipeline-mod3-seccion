@@ -73,9 +73,7 @@ def call(){
                                                 if (marca == false){
                                                      // CI(listaEtapas)
                                                     if (params.builtTool == "gradle") {
-                                                        def ultimaEtapa = '';
-                                                         gradle(listaEtapas,verifyBranchName(),ultimaEtapa)
-                                                         println ultimaEtapa
+                                                         gradle(listaEtapas,verifyBranchName())
                                                         } else {
                                                          maven(listaEtapas,verifyBranchName())
                                                     }
