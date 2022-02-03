@@ -14,6 +14,7 @@ def call(listaEtapas,pipelineType){
                                 if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
                                     stage("Build & unit test"){                                 
                                                     STAGE = env.STAGE_NAME
+                                                    ultimaEtapa = env.STAGE_NAME
                                                     figlet "Stage: ${env.STAGE_NAME}"
                                                     sh " whoami; ls -ltr "
                                                     sh  "chmod +x gradlew "
