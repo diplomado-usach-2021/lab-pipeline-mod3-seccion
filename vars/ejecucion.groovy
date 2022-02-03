@@ -23,14 +23,7 @@ def call(){
                         stage("pipeline"){
                                 steps{
                                     script {
-
-                                        if (params.builtTool == "gradle") {
-
-                                        } else {
-
-                                        }
-
-                                        
+                                                 
                                         def etapasPipeline = params.etapasPipeline;
                                         def listaEtapas = etapasPipeline.split(',')
                                         println "listaEtapas  + ${listaEtapas}"
