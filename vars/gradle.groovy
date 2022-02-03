@@ -1,5 +1,4 @@
 import helpers.*
-import variable.*
 /*
 	forma de invocación de método call:
 	def ejecucion = load 'script.groovy'
@@ -13,10 +12,7 @@ def call(listaEtapas,pipelineType){
                         figlet 'Integración Continua'
 
                                 if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
-                                    stage("Build & unit test"){              
-
-                                       def miPC=new Variable() 
-
+                                    stage("Build & unit test"){                                 
                                                     STAGE = env.STAGE_NAME
                                                     figlet "Stage: ${env.STAGE_NAME}"
                                                     sh " whoami; ls -ltr "

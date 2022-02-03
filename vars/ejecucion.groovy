@@ -7,7 +7,7 @@ def call(){
 
 
     environment{
-        STAGE = 'casa'
+        STAGE = '.'
         pipelineType = verifyBranchName()
     }
 
