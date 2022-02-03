@@ -64,7 +64,6 @@ def call(listaEtapas,pipelineType){
                                                         stage("gitCreateRelease"){
                                                                         figlet "Stage: ${env.STAGE_NAME}"
                                                                         STAGE = env.STAGE_NAME
-                                                                        figlet "Stage: ${env.STAGE_NAME}"
                                                                         
                                                                        // sh "  git ls-remote  --heads origin  release-v1-0-1 &&  git push origin --delete release-v1-0-1  && git branch -d  release-v1-0-1   "
                                                                         sh " git branch release-v1-0-1 "
