@@ -15,7 +15,7 @@ def call(listaEtapas,pipelineType){
                                 if (listaEtapas.contains("build") || listaEtapas.contains("sonar")  ||  listaEtapas.contains("nexusUpload") ){ 
                                     stage("Build & unit test"){              
 
-                                        def miPC= new Computadora(marca:"DELL",modelo:"1501")
+                                        def miPC= new variable(marca:"DELL",modelo:"1501")
 
                                         //mostramos los valores
                                         println "Mi PC:"
