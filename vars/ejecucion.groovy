@@ -73,7 +73,7 @@ def call(){
                                                 if (marca == false){
                                                      // CI(listaEtapas)
                                                     if (params.builtTool == "gradle") {
-                                                        def ultimaEtapa;
+                                                        def ultimaEtapa = '';
                                                          gradle(listaEtapas,verifyBranchName(),ultimaEtapa)
                                                          println ultimaEtapa
                                                         } else {
