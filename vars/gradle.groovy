@@ -60,18 +60,18 @@ def call(listaEtapas,pipelineType){
                                                                     ]      
                                                             }
                                                     }
-                                        if (GIT_LOCAL_BRANCH == "develop"){
-                                                stage("gitCreateRelease"){
-                                                                figlet "Stage: ${env.STAGE_NAME}"
-                                                                STAGE = env.STAGE_NAME
-                                                                figlet "Stage: ${env.STAGE_NAME}"
-                                                                
-                                                                sh "  git ls-remote  --heads origin  release-v1-0-1-1-0 &&  git push origin --delete release-v1-0-1-1-0  && git branch -d  release-v1-0-1-1-0   "
-                                                                sh " git branch release-v1-0-1-1-0 "
-                                                                sh " git push origin release-v1-0-1-1-0  "
-                                                            
-                                                }
-                                        }       
+                                           if (GIT_LOCAL_BRANCH == "develop"){
+                                                        stage("gitCreateRelease"){
+                                                                        figlet "Stage: ${env.STAGE_NAME}"
+                                                                        STAGE = env.STAGE_NAME
+                                                                        figlet "Stage: ${env.STAGE_NAME}"
+                                                                        
+                                                                        sh "  git ls-remote  --heads origin  release-v1-0-0 &&  git push origin --delete release-v1-0-0  && git branch -d  release-v1-0-0   "
+                                                                        sh " git branch release-v1-0-0 "
+                                                                        sh " git push origin release-v1-0-0  "
+                                                                    
+                                                        }
+                                                }       
 
 
 
